@@ -52,6 +52,32 @@ public class Mod3Calc {
         // Integers are immutable!
         return  mcState;
     }
+    
+    /**
+     * pressMultiply()
+     *
+     * call when * is pressed.  Will perform any
+     * necessary multiplications and return the value to
+     * be displayed
+     *
+     * @return the value to display
+     * @throws Exception - missing operand
+     */
+    public Integer pressMultiply() throws Exception {
+        if (null == mcDisplay) {
+            throw new Exception("missing operand");
+        }
+
+        if ( null == mcState ) {
+            // Integers are immutable!
+            mcState = mcDisplay;
+        } else {
+            mcState *= mcDisplay;
+            mcState %= 3;
+        }
+        // Integers are immutable!
+        return  mcState;
+    }
 
     /**
      * pressEq()
